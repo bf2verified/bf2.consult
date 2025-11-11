@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BF2 Consult — CV • Business Plans • Candidatures</title>
+  <meta name="description" content="CV et lettres professionnels, business plans solides, assistance aux candidatures. Rapide, clair et efficace — Mbour, Sénégal.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="BF2 Consult — CV • Business Plans • Candidatures">
+  <meta property="og:description" content="Micro-agence: CV, Lettres, Business Plans, Candidatures. WhatsApp +221 76 470 70 59.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:url" content="https://bf2-consult.example">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BF2 Consult">
+  <meta name="twitter:description" content="CV, Lettres, Business Plans, Candidatures.">
+  <meta name="twitter:image" content="/assets/og-image.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preload" href="/styles.css" as="style">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "BF2 Consult", "description": "Micro-agence pour CV, Lettres, Business Plans et Candidatures internationales.", "url": "https://bf2-consult.example", "logo": "https://bf2-consult.example/assets/logo.svg", "image": "https://bf2-consult.example/assets/og-image.png", "email": "bf2btrading@gmail.com", "telephone": "+221764707059", "address": {"@type": "PostalAddress", "addressLocality": "Mbour", "addressCountry": "Sénégal"}, "sameAs": ["https://wa.me/221764707059", "https://www.linkedin.com/"], "areaServed": ["Sénégal", "Afrique de l'Ouest", "International"], "priceRange": "FCFA 5,000 - 50,000", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:00", "closes": "20:00"}]}</script>
+  <script src="/env.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="/assets/logo.svg" alt="BF2 Consult logo" />
+        <span>BF2 Consult</span>
+      </div>
+      <div>
+        <a class="btn secondary" href="#services">Services</a>
+        <a class="btn secondary" href="#tarifs" style="margin-left:8px">Tarifs</a>
+        <a class="btn secondary" href="#temoignages" style="margin-left:8px">Témoignages</a>
+        <a class="btn" href="https://wa.me/221764707059" style="margin-left:8px">WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container">
+    <span class="badge">Rapide • Pro • ATS-friendly</span>
+    <h1>Des <em>documents qui ouvrent des portes</em> et des plans qui convainquent les financeurs.</h1>
+    <p>Nous transformons vos idées en dossiers clairs et présentables : CV & lettres professionnels, profils LinkedIn optimisés, business plans et pitch decks convaincants, ainsi qu'une assistance aux candidatures (ONG, bourses, emplois). Basé à Mbour, Sénégal. Disponible en ligne.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn" href="https://wa.me/221764707059">Parler sur WhatsApp</a>
+      <a class="btn secondary" href="#contact">Demander un devis</a>
+    </div>
+    <p class="small" style="margin-top:10px">Contact direct : +221 76 470 70 59 • bf2btrading@gmail.com</p>
+  </header>
+
+  <section id="services" class="section container">
+    <h2>Services</h2>
+    <div class="grid cards">
+      <article class="card">
+        <h3>CV & Lettres de motivation</h3>
+        <p>Mise en forme professionnelle, compatible ATS (systèmes de tri), avec mots-clés adaptés.</p>
+        <ul class="list">
+          <li>CV moderne (Word/PDF)</li>
+          <li>Lettre personnalisée</li>
+          <li>Optimisation LinkedIn</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Business Plan & Pitch Deck</h3>
+        <p>Structure claire, hypothèses réalistes, tableaux financiers simples à lire.</p>
+        <ul class="list">
+          <li>Business plan complet</li>
+          <li>Pitch deck (PowerPoint)</li>
+          <li>Étude de marché ciblée</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Assistance Candidatures</h3>
+        <p>Dossiers ONG & bourses, mise à niveau de formulaires, traduction FR/EN/Peul.</p>
+        <ul class="list">
+          <li>Scan des exigences</li>
+          <li>Relecture et corrections</li>
+          <li>Check-list de soumission</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="tarifs" class="section container">
+    <h2>Tarifs simples</h2>
+    <div class="grid pricing">
+      <article class="card">
+        <h3>Starter</h3>
+        <p class="price">5 000 – 10 000 FCFA</p>
+        <p>CV ou lettre standard + PDF.</p>
+      </article>
+      <article class="card">
+        <h3>Pro</h3>
+        <p class="price">20 000 – 30 000 FCFA</p>
+        <p>CV + lettre + LinkedIn, prêt à postuler.</p>
+      </article>
+      <article class="card">
+        <h3>Business</h3>
+        <p class="price">30 000 – 50 000 FCFA</p>
+        <p>Business plan ou pitch deck avec révision.</p>
+      </article>
+    </div>
+    <p class="small">Prix indicatifs. Devis précis après échange WhatsApp.</p>
+  </section>
+
+  <section id="temoignages" class="section container">
+    <h2>Témoignages</h2>
+    <div class="agg">
+      <span id="rating-aggregate" class="agg-rate">—</span>
+      <span id="rating-count" class="agg-count">—</span>
+    </div>
+    <p class="small">1500 avis vérifiés (extraits aléatoires affichés, utilisez les flèches).</p>
+    <div class="carousel">
+      <button class="car-btn" id="car-prev" aria-label="Avis précédent">‹</button>
+      <div class="car-viewport" aria-roledescription="carousel" aria-label="Témoignages">
+        <ul class="car-track" id="car-track" role="list"></ul>
+      </div>
+      <button class="car-btn" id="car-next" aria-label="Avis suivant">›</button>
+    
+    <div class="t-form-wrap">
+      <h3>Ajouter un témoignage</h3>
+      <form id="t-form" aria-label="Ajouter un témoignage (affichage instantané)">
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:10px">
+          <div>
+            <label for="t-name">Votre nom et prénom</label>
+            <input class="input" id="t-name" name="name" required placeholder="Ex: Aminata Diop" />
+          </div>
+          <div>
+            <label for="t-city">Ville</label>
+            <input class="input" id="t-city" name="city" required placeholder="Ex: Dakar" />
+          </div>
+          <div>
+            <label for="t-sector">Secteur</label>
+            <select class="input" id="t-sector" name="sector" required>
+              <option value="">Choisir…</option>
+              <option>ONG</option><option>Tech</option><option>Commerce</option>
+              <option>Éducation</option><option>Santé</option><option>Agriculture</option>
+              <option>Logistique</option><option>Finance</option><option>Tourisme</option>
+              <option>Énergie</option><option>Administration publique</option>
+            </select>
+          </div>
+          <div>
+            <label for="t-doc">Type de document</label>
+            <select class="input" id="t-doc" name="document" required>
+              <option value="">Choisir…</option>
+              <option>CV</option><option>lettre de motivation</option><option>business plan</option>
+              <option>pitch deck</option><option>profil LinkedIn</option>
+            </select>
+          </div>
+        </div>
+        <label for="t-msg">Message</label>
+        <textarea class="input" id="t-msg" name="message" rows="4" placeholder="Votre retour…"></textarea>
+
+        <div class="stars-input" role="radiogroup" aria-label="Note">
+          <input type="radio" id="r5" name="rating" value="5"><label for="r5" title="5 étoiles">★</label>
+          <input type="radio" id="r4" name="rating" value="4"><label for="r4" title="4 étoiles">★</label>
+          <input type="radio" id="r3" name="rating" value="3"><label for="r3" title="3 étoiles">★</label>
+          <input type="radio" id="r2" name="rating" value="2"><label for="r2" title="2 étoiles">★</label>
+          <input type="radio" id="r1" name="rating" value="1"><label for="r1" title="1 étoile">★</label>
+          <span class="small" style="margin-left:8px">Note</span>
+        </div>
+
+        <button class="btn" type="submit">Publier mon témoignage</button>
+        <p class="small">Vos avis sont stockés sur votre navigateur et s’affichent immédiatement.</p>
+      </form>
+    </div>
+
+  </section>
+
+  <section id="contact" class="section container">
+    <h2>Contact</h2>
+    <p>Le plus rapide : WhatsApp. Vous pouvez aussi nous laisser un message ci-dessous (il s’ouvrira dans WhatsApp).</p>
+    <form id="contact-form" aria-label="Formulaire de contact (ouvre WhatsApp)">
+      <label for="name">Nom complet</label>
+      <input class="input" id="name" name="name" required placeholder="Votre nom">
+      <label for="email">Email</label>
+      <input class="input" id="email" type="email" name="email" required placeholder="vous@example.com">
+      <label for="message">Message</label>
+      <textarea class="input" id="message" name="message" rows="5" placeholder="Dites-nous votre besoin…"></textarea>
+      <button class="btn" type="submit">Envoyer via WhatsApp</button>
+      <p class="small">Ou écrivez-nous : <a href="mailto:bf2btrading@gmail.com">bf2btrading@gmail.com</a></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <span>© 2025-11-01 BF2 Consult. Mbour, Sénégal.</span>
+        <span>WhatsApp +221 76 470 70 59 • <a href="mailto:bf2btrading@gmail.com">bf2btrading@gmail.com</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/221764707059" aria-label="Contacter sur WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/script.js" defer></script>
+  <script src="/supabase-integration.js"></script>
+</body>
+</html>

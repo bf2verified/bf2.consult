@@ -1,0 +1,15 @@
+{
+  "name": "BF2 Consult",
+  "short_name": "BF2Consult",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}
