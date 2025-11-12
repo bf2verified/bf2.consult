@@ -29,11 +29,17 @@
         <img src="/assets/logo.svg" alt="BF2 Consult logo" />
         <span>BF2 Consult</span>
       </div>
-      <div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Ouvrir le menu</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
         <a class="btn secondary" href="#services">Services</a>
-        <a class="btn secondary" href="#tarifs" style="margin-left:8px">Tarifs</a>
-        <a class="btn secondary" href="#temoignages" style="margin-left:8px">Témoignages</a>
-        <a class="btn" href="https://wa.me/221764707059" style="margin-left:8px">WhatsApp</a>
+        <a class="btn secondary" href="#tarifs">Tarifs</a>
+        <a class="btn secondary" href="#temoignages">Témoignages</a>
+        <a class="btn" href="https://wa.me/221764707059">WhatsApp</a>
       </div>
     </div>
   </nav>
@@ -42,11 +48,11 @@
     <span class="badge">Rapide • Pro • ATS-friendly</span>
     <h1>Des <em>documents qui ouvrent des portes</em> et des plans qui convainquent les financeurs.</h1>
     <p>Nous transformons vos idées en dossiers clairs et présentables : CV & lettres professionnels, profils LinkedIn optimisés, business plans et pitch decks convaincants, ainsi qu'une assistance aux candidatures (ONG, bourses, emplois). Basé à Mbour, Sénégal. Disponible en ligne.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <div class="hero-ctas">
       <a class="btn" href="https://wa.me/221764707059">Parler sur WhatsApp</a>
       <a class="btn secondary" href="#contact">Demander un devis</a>
     </div>
-    <p class="small" style="margin-top:10px">Contact direct : +221 76 470 70 59 • bf2btrading@gmail.com</p>
+    <p class="small hero-contact">Contact direct : +221 76 470 70 59 • bf2btrading@gmail.com</p>
   </header>
 
   <section id="services" class="section container">

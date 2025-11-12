@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const setMenuState = (open) => {
+    if(!navToggle || !navMenu) return;
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navMenu.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+  };
+  if(navToggle && navMenu){
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      setMenuState(!expanded);
+    });
+    navMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenuState(false));
+    });
+    document.addEventListener('keydown', (event) => {
+      if(event.key === 'Escape'){
+        setMenuState(false);
+      }
+    });
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 768){
+        setMenuState(false);
+      }
+    });
+  }
+
   const form = document.querySelector('#contact-form');
   const toast = document.querySelector('#toast');
   if(form){
