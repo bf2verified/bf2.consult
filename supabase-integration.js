@@ -10,7 +10,7 @@
   });
 
   // Realtime: any new insert from anywhere appears instantly
-  const channel = supabase
+  supabase
     .channel('testimonials-realtime')
     .on('postgres_changes', { event:'INSERT', schema:'public', table:'testimonials' }, (payload) => {
       const row = payload.new || {};
@@ -19,11 +19,14 @@
         const LS='BF2_LOCAL_TESTIMONIALS';
         const raw=localStorage.getItem(LS);
         const arr=raw? JSON.parse(raw): [];
-        arr.unshift(item);
-        localStorage.setItem(LS, JSON.stringify(arr));
-        window.dispatchEvent(new Event('resize'));
-        const toast=document.getElementById('toast');
-        if(toast){ toast.style.display='block'; toast.textContent='Nouveau témoignage en ligne'; setTimeout(()=> toast.style.display='none', 2500); }
+        const exists=arr.some((existing)=> existing.name===item.name && existing.message===item.message && existing.city===item.city && existing.document===item.document && existing.stars===item.stars);
+        if(!exists){
+          arr.unshift(item);
+          localStorage.setItem(LS, JSON.stringify(arr));
+          window.dispatchEvent(new Event('resize'));
+          const toast=document.getElementById('toast');
+          if(toast){ toast.style.display='block'; toast.textContent='Nouveau témoignage en ligne'; setTimeout(()=> toast.style.display='none', 2500); }
+        }
       }catch(e){ console.error('Realtime merge error', e); }
     })
     .subscribe();

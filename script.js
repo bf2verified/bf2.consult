@@ -22,11 +22,6 @@ function initContactForm(){
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  initContactForm();
-  testimonialsModule.init();
-});
-
 const LS_KEY = 'BF2_LOCAL_TESTIMONIALS';
 function loadLocalTestimonials(){
   try{
@@ -395,7 +390,13 @@ const testimonialsModule = (() => {
     state.form.reset();
     paintStars && paintStars();
     setPanelVisibility(false);
+    window.dispatchEvent(new CustomEvent('bf2:localSubmit', { detail: { item: newItem } }));
   }
 
   return { init };
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  initContactForm();
+  testimonialsModule.init();
+});
