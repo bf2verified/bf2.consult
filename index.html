@@ -105,67 +105,69 @@
   </section>
 
   <section id="temoignages" class="section container">
-    <h2>Témoignages</h2>
-    <div class="agg">
-      <span id="rating-aggregate" class="agg-rate">—</span>
-      <span id="rating-count" class="agg-count">—</span>
+    <div class="testimonials-header">
+      <div class="testimonials-title">
+        <h2>Témoignages</h2>
+        <div class="testimonial-summary" aria-live="polite">
+          <span id="rating-stars" class="summary-stars" role="img">☆☆☆☆☆</span>
+          <span id="rating-aggregate" class="agg-rate">—</span>
+          <span id="rating-count" class="agg-count">—</span>
+        </div>
+        <p class="small">1500 avis vérifiés — glissez ou scrollez pour parcourir les retours clients.</p>
+      </div>
+      <button class="btn secondary t-toggle-btn" id="t-toggle" aria-expanded="false" aria-controls="t-form-panel">Laisser un avis</button>
     </div>
-    <p class="small">1500 avis vérifiés (extraits aléatoires affichés, utilisez les flèches).</p>
     <div class="carousel">
       <button class="car-btn" id="car-prev" aria-label="Avis précédent">‹</button>
       <div class="car-viewport" aria-roledescription="carousel" aria-label="Témoignages">
         <ul class="car-track" id="car-track" role="list"></ul>
       </div>
       <button class="car-btn" id="car-next" aria-label="Avis suivant">›</button>
-    
-    <div class="t-form-wrap">
-      <h3>Ajouter un témoignage</h3>
+    </div>
+    <div class="t-form-panel" id="t-form-panel" hidden>
       <form id="t-form" aria-label="Ajouter un témoignage (affichage instantané)">
-        <div class="grid" style="grid-template-columns:1fr 1fr;gap:10px">
-          <div>
-            <label for="t-name">Votre nom et prénom</label>
-            <input class="input" id="t-name" name="name" required placeholder="Ex: Aminata Diop" />
-          </div>
-          <div>
-            <label for="t-city">Ville</label>
-            <input class="input" id="t-city" name="city" required placeholder="Ex: Dakar" />
-          </div>
-          <div>
-            <label for="t-sector">Secteur</label>
-            <select class="input" id="t-sector" name="sector" required>
-              <option value="">Choisir…</option>
-              <option>ONG</option><option>Tech</option><option>Commerce</option>
-              <option>Éducation</option><option>Santé</option><option>Agriculture</option>
-              <option>Logistique</option><option>Finance</option><option>Tourisme</option>
-              <option>Énergie</option><option>Administration publique</option>
-            </select>
-          </div>
-          <div>
-            <label for="t-doc">Type de document</label>
-            <select class="input" id="t-doc" name="document" required>
-              <option value="">Choisir…</option>
-              <option>CV</option><option>lettre de motivation</option><option>business plan</option>
-              <option>pitch deck</option><option>profil LinkedIn</option>
-            </select>
-          </div>
+        <div class="t-field">
+          <label for="t-name">Nom complet</label>
+          <input class="input" id="t-name" name="name" required placeholder="Ex: Aminata Diop" />
         </div>
-        <label for="t-msg">Message</label>
-        <textarea class="input" id="t-msg" name="message" rows="4" placeholder="Votre retour…"></textarea>
-
+        <div class="t-field">
+          <label for="t-city">Ville</label>
+          <input class="input" id="t-city" name="city" required placeholder="Ex: Dakar" />
+        </div>
+        <div class="t-field">
+          <label for="t-sector">Secteur</label>
+          <select class="input" id="t-sector" name="sector" required>
+            <option value="">Choisir…</option>
+            <option>ONG</option><option>Tech</option><option>Commerce</option>
+            <option>Éducation</option><option>Santé</option><option>Agriculture</option>
+            <option>Logistique</option><option>Finance</option><option>Tourisme</option>
+            <option>Énergie</option><option>Administration publique</option>
+          </select>
+        </div>
+        <div class="t-field">
+          <label for="t-doc">Type de document</label>
+          <select class="input" id="t-doc" name="document" required>
+            <option value="">Choisir…</option>
+            <option>CV</option><option>lettre de motivation</option><option>business plan</option>
+            <option>pitch deck</option><option>profil LinkedIn</option>
+          </select>
+        </div>
+        <div class="t-field">
+          <label for="t-msg">Message</label>
+          <textarea class="input" id="t-msg" name="message" rows="4" placeholder="Votre retour…"></textarea>
+        </div>
         <div class="stars-input" role="radiogroup" aria-label="Note">
-          <input type="radio" id="r5" name="rating" value="5"><label for="r5" title="5 étoiles">★</label>
-          <input type="radio" id="r4" name="rating" value="4"><label for="r4" title="4 étoiles">★</label>
-          <input type="radio" id="r3" name="rating" value="3"><label for="r3" title="3 étoiles">★</label>
-          <input type="radio" id="r2" name="rating" value="2"><label for="r2" title="2 étoiles">★</label>
-          <input type="radio" id="r1" name="rating" value="1"><label for="r1" title="1 étoile">★</label>
-          <span class="small" style="margin-left:8px">Note</span>
+          <input type="radio" id="r5" name="rating" value="5"><label for="r5" data-value="5" title="5 étoiles">★</label>
+          <input type="radio" id="r4" name="rating" value="4"><label for="r4" data-value="4" title="4 étoiles">★</label>
+          <input type="radio" id="r3" name="rating" value="3"><label for="r3" data-value="3" title="3 étoiles">★</label>
+          <input type="radio" id="r2" name="rating" value="2"><label for="r2" data-value="2" title="2 étoiles">★</label>
+          <input type="radio" id="r1" name="rating" value="1"><label for="r1" data-value="1" title="1 étoile">★</label>
+          <span class="small stars-hint">Note</span>
         </div>
-
-        <button class="btn" type="submit">Publier mon témoignage</button>
+        <button class="btn full" type="submit">Publier mon témoignage</button>
         <p class="small">Vos avis sont stockés sur votre navigateur et s’affichent immédiatement.</p>
       </form>
     </div>
-
   </section>
 
   <section id="contact" class="section container">
