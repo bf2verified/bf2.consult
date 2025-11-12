@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const LS_KEY = 'BF2_LOCAL_TESTIMONIALS';
+const EVENT_UPDATED = 'bf2:testimonialsUpdated';
+const EVENT_LOCAL_SUBMIT = 'bf2:localSubmit';
 function loadLocalTestimonials(){
   try{
     const raw = localStorage.getItem(LS_KEY);
@@ -39,8 +41,24 @@ function loadLocalTestimonials(){
 }
 function saveLocalTestimonials(arr){
   try{
-    localStorage.setItem(LS_KEY, JSON.stringify(arr||[]));
+    const list = Array.isArray(arr) ? arr : [];
+    localStorage.setItem(LS_KEY, JSON.stringify(list));
+    if(typeof window !== 'undefined' && typeof window.dispatchEvent === 'function'){
+      const detail = { items: list.map(item => ({...item})) };
+      let evt;
+      try{
+        evt = new CustomEvent(EVENT_UPDATED, { detail });
+      }catch(err){
+        evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(EVENT_UPDATED, false, false, detail);
+      }
+      window.dispatchEvent(evt);
+    }
   }catch(e){}
+}
+if(typeof window !== 'undefined'){
+  window.loadLocalTestimonials = loadLocalTestimonials;
+  window.saveLocalTestimonials = saveLocalTestimonials;
 }
 
 const testimonialsModule = (() => {
@@ -85,6 +103,11 @@ const testimonialsModule = (() => {
     if(state.form){
       state.form.addEventListener('submit', handleSubmit);
     }
+
+    window.addEventListener(EVENT_UPDATED, syncFromLocal);
+    window.addEventListener('storage', (ev)=>{
+      if(ev.key === LS_KEY) syncFromLocal();
+    });
 
     state.basePayload = await fetchBase();
     rebuildCombined();
@@ -142,7 +165,14 @@ const testimonialsModule = (() => {
         ? state.basePayload
         : [];
     const local = loadLocalTestimonials();
-    state.combined = baseItems.concat(local);
+    state.combined = local.concat(baseItems);
+  }
+
+  function syncFromLocal(){
+    rebuildCombined();
+    updateAggregates();
+    renderCurrent();
+    restartAutoplay();
   }
 
   function updateAggregates(){
@@ -386,15 +416,14 @@ const testimonialsModule = (() => {
     }
     const local = loadLocalTestimonials();
     const newItem = {name, city, sector, document: documentType, message, stars};
-    local.push(newItem);
+    local.unshift(newItem);
     saveLocalTestimonials(local);
-    rebuildCombined();
-    updateAggregates();
-    renderCurrent();
-    restartAutoplay();
     state.form.reset();
     paintStars && paintStars();
     setPanelVisibility(false);
+    if(typeof window !== 'undefined' && typeof window.dispatchEvent === 'function'){
+      window.dispatchEvent(new CustomEvent(EVENT_LOCAL_SUBMIT, { detail: { item: newItem } }));
+    }
   }
 
   return { init };
