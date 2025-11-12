@@ -19,9 +19,14 @@
         const LS='BF2_LOCAL_TESTIMONIALS';
         const raw=localStorage.getItem(LS);
         const arr=raw? JSON.parse(raw): [];
-        arr.unshift(item);
-        localStorage.setItem(LS, JSON.stringify(arr));
-        window.dispatchEvent(new Event('resize'));
+        const isDuplicate=arr.some((existing)=>{
+          return existing && existing.name===item.name && existing.city===item.city && existing.sector===item.sector && existing.document===item.document && existing.message===item.message && Number(existing.stars)===Number(item.stars);
+        });
+        if(!isDuplicate){
+          arr.unshift(item);
+          localStorage.setItem(LS, JSON.stringify(arr));
+          window.dispatchEvent(new CustomEvent('bf2:remoteInsert', { detail: { item } }));
+        }
         const toast=document.getElementById('toast');
         if(toast){ toast.style.display='block'; toast.textContent='Nouveau témoignage en ligne'; setTimeout(()=> toast.style.display='none', 2500); }
       }catch(e){ console.error('Realtime merge error', e); }

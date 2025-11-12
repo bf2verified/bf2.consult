@@ -97,6 +97,8 @@ const testimonialsModule = (() => {
     startAutoplay();
 
     window.addEventListener('resize', onResize);
+    window.addEventListener('storage', onStorage);
+    window.addEventListener('bf2:remoteInsert', onRemoteInsert);
   }
 
   async function fetchBase(){
@@ -308,6 +310,22 @@ const testimonialsModule = (() => {
     state.resizeTimer = setTimeout(()=> applyMode(false), 150);
   }
 
+  function onStorage(event){
+    if(event && event.key && event.key !== LS_KEY) return;
+    refreshFromLocal();
+  }
+
+  function onRemoteInsert(){
+    refreshFromLocal();
+  }
+
+  function refreshFromLocal(){
+    rebuildCombined();
+    updateAggregates();
+    renderCurrent();
+    restartAutoplay();
+  }
+
   function bindButtons(){
     if(state.btnNext){
       state.btnNext.addEventListener('click', ()=>{
@@ -388,10 +406,8 @@ const testimonialsModule = (() => {
     const newItem = {name, city, sector, document: documentType, message, stars};
     local.push(newItem);
     saveLocalTestimonials(local);
-    rebuildCombined();
-    updateAggregates();
-    renderCurrent();
-    restartAutoplay();
+    refreshFromLocal();
+    window.dispatchEvent(new CustomEvent('bf2:localSubmit', { detail: { item: newItem } }));
     state.form.reset();
     paintStars && paintStars();
     setPanelVisibility(false);
